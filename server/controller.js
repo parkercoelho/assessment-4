@@ -28,9 +28,11 @@ const mlkQuotes = [
     "A man who wont die for something is not fit to live"
 ]
 
+const anyQuotes = []
+
 module.exports = {
 
-    getCompliment: (req, res) => {
+    getGoodCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
 
         // choose random compliment
@@ -67,7 +69,19 @@ module.exports = {
         let randomMLK = mlkQuotes[randomIndex]
 
         res.status(200).send(randomMLK)
-    }
+    },
+
+    addQuote: (req, res) => {
+        const randomIndex = Math.floor(Math.random() * mlkQuotes.length)
+        const randomArray = [
+            MTQuotes[randomIndex],
+            mlkQuotes[randomIndex],
+            dostQuotes[randomIndex]
+        ]
+        const index = Math.floor(Math.random() * randomArray.length)
+        anyQuotes.push(randomArray[index]) 
+        res.status(200).send(anyQuotes)
+    },
 
 
 }

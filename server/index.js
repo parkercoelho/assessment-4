@@ -7,13 +7,14 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment, getFortune, getDost, getMT, getMLK } = require('./controller')
+const { getGoodCompliment, getFortune, getDost, getMT, getMLK, addQuote } = require('./controller')
 
-app.get("/api/compliment", getCompliment);
+app.get("/api/compliment", getGoodCompliment);
 app.get("/api/fortune", getFortune)
 app.get("/api/dostoevsky", getDost)
 app.get("/api/teresa", getMT)
 app.get("/api/mlk", getMLK)
+app.post("/api/newquotes", addQuote)
 
 
 
